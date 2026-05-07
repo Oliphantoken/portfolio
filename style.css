@@ -59,6 +59,18 @@ a:hover {
   padding: 24px 20px 48px;
 }
 
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+  max-width: 640px;
+}
+
+.hero-content h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  max-width: 14ch;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -143,8 +155,9 @@ h2 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+  justify-content: center;
+  gap: 20px;
 }
 
 .project-card {
@@ -222,8 +235,37 @@ h2 {
     align-items: flex-start;
     flex-direction: column;
   }
-
-  .hero-inner {
-    padding-top: 48px;
-  }
 }
+
+.hero-inner {
+  position: relative;
+  max-width: 720px;
+  padding: 72px 0 28px;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/hero-bg.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius);
+  overflow: hidden;
+  opacity: 0.22;
+  filter: saturate(0.75) contrast(0.95);
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 20, 19, 0.15), rgba(15, 20, 19, 0.82)),
+    linear-gradient(90deg, rgba(149, 178, 169, 0.18), transparent 60%);
+}
+
+
